@@ -22,7 +22,7 @@ module.exports = {
       "error", "single"
     ],
     "no-console": ["error", { allow: ["warn", "error"] }],
-    "semi": ["error", "never"],
+    "semi": ["error", "always"],
     "mocha/no-exclusive-tests": "error"
   }
 }

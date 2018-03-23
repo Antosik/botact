@@ -1,5 +1,5 @@
 {
-  "name": "botact",
+  "name": "botact-micro",
   "version": "2.3.0",
   "description": "Botact enables developers to focus on writing reusable application logic instead of spending time building infrastructure.",
   "main": "index.js",
@@ -7,13 +7,18 @@
     "test": "mocha --exit --timeout 10000",
     "example": "nodemon examples/simple.js",
     "lint": "eslint .",
-    "ci-publish": "ci-publish",
     "fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bifot/botact.git"
   },
+  "contributors": [
+    {
+      "name": "Antosik",
+      "url": "https://github.com/Antosik"
+    }
+  ],
   "keywords": [
     "vk",
     "vk-api",
@@ -31,14 +36,10 @@
   "homepage": "https://github.com/bifot/botact#readme",
   "typings": "./index.d.ts",
   "dependencies": {
-    "axios": "^0.18.0",
-    "bluebird": "^3.5.1",
-    "form-data": "^2.3.2",
-    "redis": "^2.8.0"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "ci-publish": "^1.3.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-mocha": "^4.11.0",
