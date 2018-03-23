@@ -1,6 +1,6 @@
-const { expect } = require('chai')
-const path = require('path')
-const { bot } = require('./test.config.js')
+const { expect } = require('chai');
+const path = require('path');
+const { bot } = require('./test.config.js');
 
 describe('methods', () => {
   describe('uploadCover', () => {
@@ -8,18 +8,18 @@ describe('methods', () => {
       const response = await bot.uploadCover(path.join(__dirname, './files/cover.png'), {
         crop_x2: 1590,
         crop_y2: 400
-      })
+      });
 
-      const { images } = response
+      const { images } = response;
 
-      expect(response).to.be.a('object').to.have.all.keys([ 'images' ])
-      expect(images).to.be.a('array')
-    })
-  })
+      expect(response).to.be.a('object').to.have.all.keys(['images']);
+      expect(images).to.be.a('array');
+    });
+  });
 
   describe('reply', () => {
     it('reply without permission', async () => {
-      const body = await bot.reply(1, 'Hello, world!')
+      const body = await bot.reply(1, 'Hello, world!');
 
       expect(body).to.deep.equal({
         response: [{
@@ -29,20 +29,20 @@ describe('methods', () => {
             description: 'Can\'t send messages for users without permission'
           }
         }]
-      })
-    })
+      });
+    });
 
     it('reply with permission', async () => {
-      const { response } = await bot.reply(145003487, 'Hello, world!')
-      const [ message ] = response
+      const { response } = await bot.reply(13598846, 'Hello, world!');
+      const [message] = response;
 
-      expect(response).to.be.a('array')
-      expect(message).to.be.a('object').to.have.all.keys([ 'peer_id', 'message_id' ])
-    })
+      expect(response).to.be.a('array');
+      expect(message).to.be.a('object').to.have.all.keys(['peer_id', 'message_id']);
+    });
 
     it('reply without message or attachment', async () => {
       try {
-        await bot.reply(1, null)
+        await bot.reply(1, null);
       } catch (error) {
         expect(error).to.deep.equal({
           error: {
@@ -50,8 +50,8 @@ describe('methods', () => {
             error_msg: 'One of the parameters specified was missing or invalid: message is empty or invalid',
             method: 'messages.send'
           }
-        })
+        });
       }
-    })
-  })
-})
+    });
+  });
+});

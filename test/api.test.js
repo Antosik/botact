@@ -1,9 +1,9 @@
-const { expect } = require('chai')
-const { bot } = require('./test.config.js')
+const { expect } = require('chai');
+const { bot } = require('./test.config.js');
 
 describe('api', () => {
   it('single call', async () => {
-    const body = await bot.api('users.get', { user_ids: 1 })
+    const body = await bot.api('users.get', { user_ids: 1 });
 
     expect(body).to.deep.equal({
       response: [{
@@ -11,8 +11,8 @@ describe('api', () => {
         first_name: 'Павел',
         last_name: 'Дуров'
       }]
-    })
-  })
+    });
+  });
 
   it('execute (callback)', () => {
     bot.execute('users.get', {
@@ -26,8 +26,8 @@ describe('api', () => {
             last_name: 'Дуров'
           }
         ]
-      })
-    })
+      });
+    });
 
     bot.execute('groups.isMember', {
       group_id: process.env.GROUP_ID,
@@ -35,9 +35,9 @@ describe('api', () => {
     }, (body) => {
       expect(body).to.deep.equal({
         response: 0
-      })
-    })
-  })
+      });
+    });
+  });
 
   it('execute (promisify)', async () => {
     const results = await Promise.all([
@@ -48,7 +48,7 @@ describe('api', () => {
         group_id: process.env.GROUP_ID,
         user_id: 1
       })
-    ])
+    ]);
 
     expect(results).to.deep.equal([
       [
@@ -59,6 +59,6 @@ describe('api', () => {
         }
       ],
       0
-    ])
-  })
-})
+    ]);
+  });
+});
