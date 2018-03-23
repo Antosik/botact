@@ -5,7 +5,10 @@ module.exports = {
     "mocha": true
   },
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   },
   "extends": "eslint:recommended",
   "plugins": [
@@ -25,4 +28,4 @@ module.exports = {
     "semi": ["error", "always"],
     "mocha/no-exclusive-tests": "error"
   }
-}
+};
